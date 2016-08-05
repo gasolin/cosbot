@@ -36,7 +36,6 @@ var HuohuBot = {
 
   onReceive: function() {
     var receiveMsg = this.message.value;
-    //console.log('receiveMsg:' + receiveMsg);
     this.chatHistory.push(this.myAlias + ': ' + receiveMsg);
     this.processListeners(receiveMsg);
   },
