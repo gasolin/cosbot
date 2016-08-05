@@ -17,11 +17,14 @@ var HuohuBot = {
   init: function() {
     this.myAlias = 'me';
     this.botAlias = 'bot';
+    this.messageHistoryElement = 'history';
+    this.inputElement = 'message';
+    this.sendButtonElement = 'send';
     this.chatHistory = ["bot: type something to chat with me"];
 
-    this.history = document.getElementById('history');
-    this.message = document.getElementById('message');
-    this.btn = document.getElementById('send');
+    this.history = document.getElementById(this.messageHistoryElement);
+    this.message = document.getElementById(this.inputElement);
+    this.btn = document.getElementById(this.sendButtonElement);
 
     this.btn.addEventListener('click', this.onReceive.bind(this));
     this.message.addEventListener('keydown', this.onKeydown.bind(this));
