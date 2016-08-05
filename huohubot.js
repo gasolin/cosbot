@@ -1,17 +1,17 @@
 'use strict';
 var HuohuBot = {
   rules: [{name: 'ping', rule: /PING$/i, action: function(robot, msg) {
-      return robot.botAlias + ': PONG';
+      robot.send('PONG');
     }},
-    {name: 'echo', rule: /ECHO (.*)$/i, action: function(robot, msg) {
-      return robot.botAlias + ': ' + msg;
+    {name: 'echo [string]', rule: /ECHO (.*)$/i, action: function(robot, msg) {
+      robot.send(msg);
     }},
     {name: 'time', rule: /TIME$/i, action: function(robot, msg) {
-      return robot.botAlias + ': Device time is ' + new Date();
+      robot.send('Device time is ' + new Date());
     }}],
 
   catchAll: {action: function(robot, msg) {
-    return robot.botAlias + ': what do you say?';
+    robot.send('what do you say?');
   }},
 
   init: function() {
@@ -35,9 +35,9 @@ var HuohuBot = {
   },
 
   onReceive: function() {
-    var receiveMsg = this.message.value;
-    this.chatHistory.push(this.myAlias + ': ' + receiveMsg);
-    this.processListeners(receiveMsg);
+    var receivedMsg = this.message.value;
+    this.send(receivedMsg, this.myAlias);
+    this.processListeners(receivedMsg);
   },
 
   processListeners: function(msg) {
@@ -45,15 +45,13 @@ var HuohuBot = {
     this.rules.forEach((item) => {
       if (item.rule.test(msg)) {
         console.log('matched!');
-        var response = item.action(this, msg);
-        this.chatHistory.push(response);
+        item.action(this, msg);
       }
     });
 
-    if (len == this.chatHistory.length) {
+    if (len === this.chatHistory.length) {
       console.log('wildcard');
-      var response = this.catchAll.action(this, msg);
-      this.chatHistory.push(response);
+      this.catchAll.action(this, msg);
     }
     this.render();
   },
@@ -74,6 +72,11 @@ var HuohuBot = {
     while (this.history.firstChild) {
       this.history.removeChild(this.history.firstChild);
     }
+  },
+
+  send: function(msg, role) {
+    var charactor = role ? role : this.botAlias;
+    this.chatHistory.push(charactor + ': ' + msg);
   }
 };
 

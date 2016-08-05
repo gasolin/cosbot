@@ -76,7 +76,7 @@ if (!Huohubot) {
   return
 }
 
-Huohubot.prototype.addonName = {
+Huohubot.addonName = {
   ...
 };
 ```
