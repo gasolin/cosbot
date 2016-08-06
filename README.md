@@ -63,12 +63,20 @@ bot: Hello World!
 
 ## Developer
 
+### Make an plugin
+
+Plugin denotes rules and responses that the bot use to match and respond to the user.
+
 Open browser's devtool and you can start manipulate `Huohubot` object.
 Plugins are located in `Huohubot.responses`, and that is the place all you need to deal with.
 
 Check [Plugin Demo](https://gasolin.github.io/huohubot/plugin) for example.
 
+![Imgur](http://i.imgur.com/mbhTwf6.png)
+
 ### Make an addon
+
+Addon denotes extra function that can expand Huohubot's functionality.
 
 You can extend Huohubot's functionality by import extra `huohubot-[addonName].js`:
 
@@ -91,7 +99,9 @@ then include the js file after `huohubot.js`.
 <script defer src="huohubot-addonName.js"></script>
 ```
 
-Check [Addon Demo](https://gasolin.github.io/huohubot/plugin) for example.
+Check [Addon Demo](https://gasolin.github.io/huohubot/addon) for example.
+
+![Imgur](http://i.imgur.com/qYCES6M.png)
 
 ## License
 
