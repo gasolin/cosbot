@@ -11,6 +11,8 @@
   <input id="message"><button id="send">Send</button>
 
   <p>
+    >> type `ping`, `time`, or `echo [message]` to see what's happened<br>
+    >> type `bye`, `home` and you can interact with bot's confirm dialog<br>
     >> <a href="https://github.com/gasolin/huohubot/">Download Huohubot</a>
   </p>
 
@@ -95,6 +97,8 @@
       HuohuBot.responses.push(
         { name: 'go', rule: /home$/i, action: function(robot, msg) {
           robot.confirm('visit Huohubot website', ['ok', function() {
+              robot.send('You\'ll be redirect to Huohubot home!');
+              robot.render();
               window.location = 'https://github.com/gasolin/huohubot';
             }]
           );
