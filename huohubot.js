@@ -20,7 +20,8 @@ var HuohuBot = {
     this.messageHistoryElement = 'history';
     this.inputElement = 'message';
     this.sendButtonElement = 'send';
-    this.chatHistory = ["bot: type something to chat with me"];
+    this.chatHistory = [{type: 'normal', role: 'bot',
+      message: 'type something to chat with me'}];
 
     this.history = document.getElementById(this.messageHistoryElement);
     this.message = document.getElementById(this.inputElement);
@@ -62,24 +63,24 @@ var HuohuBot = {
   render: function() {
     console.log('render!');
     this.cleanUp();
-    this.chatHistory.forEach((msg) => {
+    this.chatHistory.forEach((meta) => {
       var response = document.createElement('p');
-      response.textContent = msg;
+      response.textContent = meta.role + ': ' + meta.message;
       this.history.appendChild(response);
     });
-    this.message.value = '';
-    this.message.focus();
   },
 
   cleanUp: function() {
     while (this.history.firstChild) {
       this.history.removeChild(this.history.firstChild);
     }
+    this.message.value = '';
+    this.message.focus();
   },
 
   send: function(msg, role) {
     var charactor = role ? role : this.botAlias;
-    this.chatHistory.push(charactor + ': ' + msg);
+    this.chatHistory.push({type: 'normal', role: charactor, message: msg});
   }
 };
 
