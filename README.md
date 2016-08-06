@@ -91,6 +91,8 @@ then include the js file after `huohubot.js`.
 <script defer src="huohubot-addonName.js"></script>
 ```
 
+Check [Addon Demo](https://gasolin.github.io/huohubot/plugin) for example.
+
 ## License
 
 Huohubot use MIT License
