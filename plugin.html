@@ -12,9 +12,18 @@
 
   <p>
     >> type `ping`, `time`, or `echo [message]` to see what's happened<br>
+    >> type `bye` and you'll got message from bot <br>
     >> <a href="https://github.com/gasolin/huohubot/">Download Huohubot</a>
   </p>
 
   <script defer src="huohubot.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      HuohuBot.responses.push(
+        { name: 'bye', rule: /BYE$/i, action: function(robot, msg) {
+          robot.send('see ya');
+        }});
+    });
+  </script>
 </body>
 </html>

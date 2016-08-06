@@ -66,6 +66,8 @@ bot: Hello World!
 Open browser's devtool and you can start manipulate `Huohubot` object.
 Plugins are located in `Huohubot.responses`, and that is the place all you need to deal with.
 
+Check [Plugin Demo](https://gasolin.github.io/huohubot/plugin) for example.
+
 ### Make an addon
 
 You can extend Huohubot's functionality by import extra `huohubot-[addonName].js`:

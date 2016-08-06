@@ -80,9 +80,9 @@ var HuohuBot = {
 
   send: function(msg, role) {
     var charactor = role ? role : this.botAlias;
-    var response = document.createElement('p');
-    response.textContent = charactor + ': ' + msg;
-    this.chatHistory.push(response);
+    var sendMsg = document.createElement('p');
+    sendMsg.textContent = charactor + ': ' + msg;
+    this.chatHistory.push(sendMsg);
   }
 };
 
