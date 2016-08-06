@@ -1,16 +1,17 @@
 'use strict';
 var HuohuBot = {
-  rules: [{name: 'ping', rule: /PING$/i, action: function(robot, msg) {
+  responses: [ // default plugins
+    { name: 'ping', rule: /PING$/i, action: function(robot, msg) {
       robot.send('PONG');
     }},
-    {name: 'echo [string]', rule: /ECHO (.*)$/i, action: function(robot, msg) {
+    { name: 'echo [string]', rule: /ECHO (.*)$/i, action: function(robot, msg) {
       robot.send(msg);
     }},
-    {name: 'time', rule: /TIME$/i, action: function(robot, msg) {
+    { name: 'time', rule: /TIME$/i, action: function(robot, msg) {
       robot.send('Device time is ' + new Date());
     }}],
 
-  catchAll: {action: function(robot, msg) {
+  catchAll: { action: function(robot, msg) {
     robot.send('what do you say?');
   }},
 
@@ -20,8 +21,9 @@ var HuohuBot = {
     this.messageHistoryElement = 'history';
     this.inputElement = 'message';
     this.sendButtonElement = 'send';
-    this.chatHistory = [{type: 'normal', role: 'bot',
-      message: 'type something to chat with me'}];
+    this.defaultMessage = document.createElement('p');
+    this.defaultMessage.textContent = this.botAlias + ': type something to chat with me';
+    this.chatHistory = [this.defaultMessage];
 
     this.history = document.getElementById(this.messageHistoryElement);
     this.message = document.getElementById(this.inputElement);
@@ -46,7 +48,7 @@ var HuohuBot = {
 
   processListeners: function(msg) {
     var len = this.chatHistory.length;
-    this.rules.forEach((item) => {
+    this.responses.forEach((item) => {
       if (item.rule.test(msg)) {
         console.log('matched!');
         item.action(this, msg);
@@ -63,10 +65,8 @@ var HuohuBot = {
   render: function() {
     console.log('render!');
     this.cleanUp();
-    this.chatHistory.forEach((meta) => {
-      var response = document.createElement('p');
-      response.textContent = meta.role + ': ' + meta.message;
-      this.history.appendChild(response);
+    this.chatHistory.forEach((element) => {
+      this.history.appendChild(element);
     });
   },
 
@@ -80,7 +80,9 @@ var HuohuBot = {
 
   send: function(msg, role) {
     var charactor = role ? role : this.botAlias;
-    this.chatHistory.push({type: 'normal', role: charactor, message: msg});
+    var response = document.createElement('p');
+    response.textContent = charactor + ': ' + msg;
+    this.chatHistory.push(response);
   }
 };
 

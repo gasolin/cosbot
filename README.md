@@ -64,7 +64,7 @@ bot: Hello World!
 ## Developer
 
 Open browser's devtool and you can start manipulate `Huohubot` object.
-Plugins are located in `Huohubot.rules`, and that is the place all you need to deal with.
+Plugins are located in `Huohubot.responses`, and that is the place all you need to deal with.
 
 ### Make an addon
 
