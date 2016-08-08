@@ -32,11 +32,16 @@ If you want embed bot into your web site, clone the project then include the `hu
 <div id="history"></div>
 <input id="message"><button id="send">Send</button>
 <script defer src="huohubot.js"></script>
+<script defer src="huohubot-diagnostics.js"></script>
 ```
 
 ## Usage
 
-Huohubot provide 3 build-in plugins `ping`, `time`, `echo`:
+Huohubot provide 3 default plugins `ping`, `time`, `echo` that you can include via:
+
+```html
+<script defer src="huohubot-diagnostics.js"></script>
+```
 
 ### Ping plugin
 

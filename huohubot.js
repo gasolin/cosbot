@@ -13,16 +13,7 @@ function HuohuBot() {
 
 // var HuohuBot = {
 HuohuBot.prototype = {
-  responses: [ // default plugins
-    { name: 'ping', rule: /PING$/i, action: function(robot, msg) {
-      robot.send('PONG');
-    }},
-    { name: 'echo [string]', rule: /ECHO (.*)$/i, action: function(robot, msg) {
-      robot.send(msg);
-    }},
-    { name: 'time', rule: /TIME$/i, action: function(robot, msg) {
-      robot.send('Device time is ' + new Date());
-    }}],
+  responses: [],
 
   catchAll: { action: function(robot, msg) {
     robot.send('what do you say?');
