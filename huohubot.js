@@ -29,6 +29,7 @@ HuohuBot.prototype = {
     this.btn.addEventListener('click', this.onReceive.bind(this));
     this.message.addEventListener('keydown', this.onKeydown.bind(this));
     this.render();
+    this.emit('running');
   },
 
   onKeydown: function(e) {
@@ -80,6 +81,15 @@ HuohuBot.prototype = {
     var sendMsg = document.createElement('p');
     sendMsg.textContent = charactor + ': ' + msg;
     this.chatHistory.push(sendMsg);
+  },
+
+  emit: function(event, data) {
+    var event = new CustomEvent(event, { 'detail': data });
+    this.dispatchEvent(event);
+  },
+
+  on: function(event, callback) {
+    this.addEventListener(event, callback);
   }
 };
 
