@@ -6,7 +6,8 @@ document.addEventListener('DOMContentLoaded', function() {
   //   return;
   // }
 
-  HuohuBot.prototype.confirm = function() { // yes/no dialog
+  // confirm and selection dialog
+  HuohuBot.prototype.confirm = function() {
     var confirmDlg = document.createElement('p');
     var args = Array.prototype.slice.call(arguments);
     var that = this;

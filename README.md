@@ -5,7 +5,7 @@ Check [Online Demo](https://gasolin.github.io/huohubot/)
 
 ## Features
 
-* Chat bot works in your browser without setup a server
+* Chat bot works in your browser without setup a server, which won't send private message elsewhere.
 * Tiny size (80 lines that contain the core with 3 plugins in init version) that easy to understand and suit for embed in any web site
 * Structure is inspired by [hubot](https://github.com/github/hubot/), which is a server side chatbot framework
   * Provide plugin architecture that able to expand functions
