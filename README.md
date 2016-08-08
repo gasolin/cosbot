@@ -81,14 +81,11 @@ Addon denotes extra function that can expand Huohubot's functionality.
 You can extend Huohubot's functionality by import extra `huohubot-[addonName].js`:
 
 ```js
-'use strict';
-if (!Huohubot) {
-  return
-}
-
-Huohubot.addonName = {
-  ...
-};
+document.addEventListener('DOMContentLoaded', function() {
+  Huohubot.prototype.addonName = {
+    ...
+  };
+});
 ```
 
 then include the js file after `huohubot.js`.
@@ -109,5 +106,5 @@ Huohubot use MIT License
 
 ## ChangeLog
 
-* 0.1 2016/8/5 init version
 * 0.2 2016/8/6 change to robot.send method in plugin, add plugin and addon examples
+* 0.1 2016/8/5 init version

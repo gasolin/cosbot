@@ -17,93 +17,32 @@
   </p>
 
   <script defer src="huohubot.js"></script>
+  <script defer src="huohubot-dialog.js"></script>
   <script>
-    // addon that provide confirm dialog function
-    document.addEventListener('DOMContentLoaded', function() {
-      // if (!Huohubot) {
-      //   console.error('Huohubot is not imported, please import it first');
-      //   return;
-      // }
+  document.addEventListener('DOMContentLoaded', function() {
+    // plugins that use confirm dialog addon
+    HuohuBot.prototype.responses.push(
+      { name: 'bye', rule: /BYE$/i, action: function(robot, msg) {
+        robot.confirm('would you like to exit?', ['ok', function() {
+            robot.send('see ya');
+            robot.render();
+          }], ['no', function() {
+            robot.send('Let\'s talk more!');
+            robot.render();
+          }]
+        );
+      }});
 
-      HuohuBot.confirm = function() { // yes/no dialog
-        var confirmDlg = document.createElement('p');
-        var args = Array.prototype.slice.call(arguments);
-        var that = this;
-
-        function handleEvent(cb, idx) {
-          return function(e) {
-            that.confirmSelected(idx, args);
-            cb();
-          };
-        }
-
-        args.forEach((item, idx) => {
-          // first arg is title
-          if (typeof item === 'string' && idx === 0) {
-            this.send(item);
-            return;
-          }
-
-          var confirmBtn = document.createElement('a');
-          confirmBtn.textContent = item[0];
-          confirmBtn.href = '#';
-          if (item[1]) {
-            confirmBtn.addEventListener('click', handleEvent(item[1], idx));
-          }
-          confirmDlg.appendChild(confirmBtn);
-
-          if (idx !== args.length - 1) {
-            confirmDlg.appendChild(document.createElement('br'));
-          }
-        });
-        this.chatHistory.push(confirmDlg);
-      };
-
-      HuohuBot.confirmSelected = function(selected, args) {
-        this.chatHistory.pop();
-        this.chatHistory.pop();
-        var confirmDlg = document.createElement('p');
-        args.forEach((item, idx) => {
-          if (typeof item === 'string') {
-            this.send(item);
-            return;
-          }
-
-          var confirmBtn = document.createElement('span');
-          confirmBtn.textContent = (idx === selected) ? 'v ' + item[0] : item[0];
-          confirmDlg.appendChild(confirmBtn);
-
-          if (idx !== args.length - 1) {
-            confirmDlg.appendChild(document.createElement('br'));
-          }
-        });
-
-        this.chatHistory.push(confirmDlg);
-      }
-
-      // plugins that use confirm dialog addon
-      HuohuBot.responses.push(
-        { name: 'bye', rule: /BYE$/i, action: function(robot, msg) {
-          robot.confirm('would you like to exit?', ['ok', function() {
-              robot.send('see ya');
-              robot.render();
-            }], ['no', function() {
-              robot.send('Let\'s talk more!');
-              robot.render();
-            }]
-          );
-        }});
-
-      HuohuBot.responses.push(
-        { name: 'go', rule: /home$/i, action: function(robot, msg) {
-          robot.confirm('visit Huohubot website', ['ok', function() {
-              robot.send('You\'ll be redirect to Huohubot home!');
-              robot.render();
-              window.location = 'https://github.com/gasolin/huohubot';
-            }]
-          );
-        }});
-    });
+    HuohuBot.prototype.responses.push(
+      { name: 'go', rule: /home$/i, action: function(robot, msg) {
+        robot.confirm('visit Huohubot website', ['ok', function() {
+            robot.send('You\'ll be redirect to Huohubot home!');
+            robot.render();
+            window.location = 'https://github.com/gasolin/huohubot';
+          }]
+        );
+      }});
+  });
   </script>
 </body>
 </html>

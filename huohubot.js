@@ -1,5 +1,18 @@
 'use strict';
-var HuohuBot = {
+function HuohuBot() {
+  this.myAlias = 'me';
+  this.botAlias = 'bot';
+  this.messageHistoryElement = 'history';
+  this.inputElement = 'message';
+  this.sendButtonElement = 'send';
+  this.defaultMessage = document.createElement('p');
+  this.defaultMessage.textContent = this.botAlias + ': type something to chat with me';
+
+  this.init();
+}
+
+// var HuohuBot = {
+HuohuBot.prototype = {
   responses: [ // default plugins
     { name: 'ping', rule: /PING$/i, action: function(robot, msg) {
       robot.send('PONG');
@@ -16,13 +29,6 @@ var HuohuBot = {
   }},
 
   init: function() {
-    this.myAlias = 'me';
-    this.botAlias = 'bot';
-    this.messageHistoryElement = 'history';
-    this.inputElement = 'message';
-    this.sendButtonElement = 'send';
-    this.defaultMessage = document.createElement('p');
-    this.defaultMessage.textContent = this.botAlias + ': type something to chat with me';
     this.chatHistory = [this.defaultMessage];
 
     this.history = document.getElementById(this.messageHistoryElement);
@@ -86,4 +92,4 @@ var HuohuBot = {
   }
 };
 
-HuohuBot.init();
+var huohubot = new HuohuBot();

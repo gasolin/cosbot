@@ -19,7 +19,7 @@
   <script defer src="huohubot.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      HuohuBot.responses.push(
+      HuohuBot.prototype.responses.push(
         { name: 'bye', rule: /BYE$/i, action: function(robot, msg) {
           robot.send('see ya');
         }});
