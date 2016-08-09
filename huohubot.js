@@ -84,12 +84,12 @@ HuohuBot.prototype = {
   },
 
   emit: function(event, data) {
-    var event = new CustomEvent(event, { 'detail': data });
-    this.dispatchEvent(event);
+    // var event = new CustomEvent(event, { 'detail': data });
+    // this.inputElement.dispatchEvent(event);
   },
 
   on: function(event, callback) {
-    this.addEventListener(event, callback);
+    // this.inputElement.addEventListener(event, callback);
   }
 };
 
