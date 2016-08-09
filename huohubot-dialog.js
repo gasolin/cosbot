@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function handleEvent(cb, idx) {
       return function(e) {
-        that.confirmSelected(idx, args);
+        that.dialogSelected(idx, args);
         cb();
       };
     }
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
     this.chatHistory.push(confirmDlg);
   };
 
-  HuohuBot.prototype.confirmSelected = function(selected, args) {
+  HuohuBot.prototype.dialogSelected = function(selected, args) {
     this.chatHistory.pop();
     this.chatHistory.pop();
     var confirmDlg = document.createElement('p');
