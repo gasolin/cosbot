@@ -80,15 +80,6 @@ SaihuBot.prototype = {
     var sendMsg = document.createElement('p');
     sendMsg.textContent = charactor + ': ' + msg;
     this.chatHistory.push(sendMsg);
-  },
-
-  emit: function(event, data) {
-    // var event = new CustomEvent(event, { 'detail': data });
-    // this.inputElement.dispatchEvent(event);
-  },
-
-  on: function(event, callback) {
-    // this.inputElement.addEventListener(event, callback);
   }
 };
 
