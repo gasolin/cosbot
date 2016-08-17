@@ -1,5 +1,5 @@
 'use strict';
-function HuohuBot() {
+function SaihuBot() {
   this.myAlias = 'me';
   this.botAlias = 'bot';
   this.messageHistoryElement = 'history';
@@ -11,7 +11,6 @@ function HuohuBot() {
   this.init();
 }
 
-// var HuohuBot = {
 SaihuBot.prototype = {
   responses: [],
 

@@ -1,18 +1,20 @@
 # saihubot
-client side chatbot that can be embedded in any web site
+client side chat bot that can be embedded in any web site
 
 Check [Online Demo](https://gasolin.github.io/saihubot/)
 
+saihu (`師傅`) means `master` in Taiwanese, its origin goal is a code sample that make learning [hubot]((https://github.com/github/hubot/)) and its ES6 variant [Webbybot](https://github.com/gasolin/webbybot/) easier.
+
 ## Features
 
+* Tiny size (80 lines that contain the core with 3 plugins in init version)
+* Written in plain Javascript
 * Chat bot works in your browser without setup a server, which won't send private message elsewhere.
-* Tiny size (80 lines that contain the core with 3 plugins in init version) that easy to understand and suit for embed in any web site
-* Structure is inspired by [hubot](https://github.com/github/hubot/), which is a server side chatbot framework
+* Structure is inspired by [hubot](https://github.com/github/hubot/)
   * Provide plugin architecture that able to expand functions
   * Regex based message matching
   * Plugin callbacks are extremely flexible, you can control in-page elements, execute local command, fetch remote data, trigger remote actions...
   * can extend bot functionality by import addons
-
 
 ## How to Install
 
@@ -111,5 +113,6 @@ Saihubot use MIT License
 
 ## ChangeLog
 
+* 0.3 rename from HuohuBot to Saihubot
 * 0.2 2016/8/6 change to robot.send method in plugin, add plugin and addon examples
 * 0.1 2016/8/5 init version

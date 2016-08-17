@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // }
 
   // confirm and selection dialog
-  HuohuBot.prototype.confirm = function() {
+  SaihuBot.prototype.confirm = function() {
     var confirmDlg = document.createElement('p');
     var args = Array.prototype.slice.call(arguments);
     var that = this;
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
     this.chatHistory.push(confirmDlg);
   };
 
-  HuohuBot.prototype.dialogSelected = function(selected, args) {
+  SaihuBot.prototype.dialogSelected = function(selected, args) {
     this.chatHistory.pop();
     this.chatHistory.pop();
     var confirmDlg = document.createElement('p');

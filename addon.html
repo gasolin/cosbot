@@ -22,7 +22,7 @@
   <script>
   document.addEventListener('DOMContentLoaded', function() {
     // plugins that use confirm dialog addon
-    HuohuBot.prototype.responses.push(
+    SaihuBot.prototype.responses.push(
       { name: 'bye', rule: /BYE$/i, action: function(robot, msg) {
         robot.confirm('would you like to exit?', ['ok', function() {
             robot.send('see ya');
@@ -34,7 +34,7 @@
         );
       }});
 
-    HuohuBot.prototype.responses.push(
+    SaihuBot.prototype.responses.push(
       { name: 'go', rule: /home$/i, action: function(robot, msg) {
         robot.confirm('visit Saihubot website', ['ok', function() {
             robot.send('You\'ll be redirect to Saihubot home!');
