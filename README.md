@@ -113,6 +113,6 @@ Saihubot use MIT License
 
 ## ChangeLog
 
-* 0.3 rename from HuohuBot to Saihubot
+* 0.3 2016/8/17 rename from HuohuBot to Saihubot, turn Saihubot to constructor, separate saihubot-dialog.js from addon
 * 0.2 2016/8/6 change to robot.send method in plugin, add plugin and addon examples
 * 0.1 2016/8/5 init version
