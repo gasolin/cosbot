@@ -1,7 +1,7 @@
-# huohubot
+# saihubot
 client side chatbot that can be embedded in any web site
 
-Check [Online Demo](https://gasolin.github.io/huohubot/)
+Check [Online Demo](https://gasolin.github.io/saihubot/)
 
 ## Features
 
@@ -18,7 +18,7 @@ Check [Online Demo](https://gasolin.github.io/huohubot/)
 
 ### Method 1
 
-If you just want to try how the bot looks like, Check [Online Demo](https://gasolin.github.io/huohubot/)
+If you just want to try how the bot looks like, Check [Online Demo](https://gasolin.github.io/saihubot/)
 
 ### Method 2
 
@@ -26,21 +26,21 @@ If you want to modify it locally, clone the project, then drag index.html to you
 
 ### Method 3
 
-If you want embed bot into your web site, clone the project then include the `huohubot.js` in your html file with 2 extra tags:
+If you want embed bot into your web site, clone the project then include the `saihubot.js` in your html file with 2 extra tags:
 
 ```html
 <div id="history"></div>
 <input id="message"><button id="send">Send</button>
-<script defer src="huohubot.js"></script>
-<script defer src="huohubot-diagnostics.js"></script>
+<script defer src="saihubot.js"></script>
+<script defer src="saihubot-diagnostics.js"></script>
 ```
 
 ## Usage
 
-Huohubot provide 3 default plugins `ping`, `time`, `echo` that you can include via:
+Saihubot provide 3 default plugins `ping`, `time`, `echo` that you can include via:
 
 ```html
-<script defer src="huohubot-diagnostics.js"></script>
+<script defer src="saihubot-diagnostics.js"></script>
 ```
 
 ### Ping plugin
@@ -72,42 +72,42 @@ bot: Hello World!
 
 Plugin denotes rules and responses that the bot use to match and respond to the user.
 
-Open browser's devtool and you can start manipulate `Huohubot` object.
-Plugins are located in `Huohubot.responses`, and that is the place all you need to deal with.
+Open browser's devtool and you can start manipulate `Saihubot` object.
+Plugins are located in `Saihubot.responses`, and that is the place all you need to deal with.
 
-Check [Plugin Demo](https://gasolin.github.io/huohubot/plugin) for example.
+Check [Plugin Demo](https://gasolin.github.io/saihubot/plugin) for example.
 
 ![Imgur](http://i.imgur.com/mbhTwf6.png)
 
 ### Make an addon
 
-Addon denotes extra function that can expand Huohubot's functionality.
+Addon denotes extra function that can expand Saihubot's functionality.
 
-You can extend Huohubot's functionality by import extra `huohubot-[addonName].js`:
+You can extend Saihubot's functionality by import extra `saihubot-[addonName].js`:
 
 ```js
 document.addEventListener('DOMContentLoaded', function() {
-  Huohubot.prototype.addonName = {
+  Saihubot.prototype.addonName = {
     ...
   };
 });
 ```
 
-then include the js file after `huohubot.js`.
+then include the js file after `saihubot.js`.
 
 ```html
 ...
-<script defer src="huohubot.js"></script>
-<script defer src="huohubot-addonName.js"></script>
+<script defer src="saihubot.js"></script>
+<script defer src="saihubot-addonName.js"></script>
 ```
 
-Check [Addon Demo](https://gasolin.github.io/huohubot/addon) for example.
+Check [Addon Demo](https://gasolin.github.io/saihubot/addon) for example.
 
 ![Imgur](http://i.imgur.com/qYCES6M.png)
 
 ## License
 
-Huohubot use MIT License
+Saihubot use MIT License
 
 ## ChangeLog
 

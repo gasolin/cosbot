@@ -1,8 +1,8 @@
 'use strict';
 // addon that provide confirm dialog function
 document.addEventListener('DOMContentLoaded', function() {
-  // if (!Huohubot) {
-  //   console.error('Huohubot is not imported, please import it first');
+  // if (!Saihubot) {
+  //   console.error('Saihubot is not imported, please import it first');
   //   return;
   // }
 

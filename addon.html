@@ -4,7 +4,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="description" content="client side chatbot that can be embedded in any web site.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  <title>Huohubot</title>
+  <title>Saihubot</title>
 </head>
 <body>
   <div id="history"></div>
@@ -13,12 +13,12 @@
   <p>
     >> type `ping`, `time`, or `echo [message]` to see what's happened<br>
     >> type `bye`, `home` and you can interact with bot's confirm dialog<br>
-    >> <a href="https://github.com/gasolin/huohubot/">Download Huohubot</a>
+    >> <a href="https://github.com/gasolin/saihubot/">Download Saihubot</a>
   </p>
 
-  <script defer src="huohubot.js"></script>
-  <script defer src="huohubot-dialog.js"></script>
-  <script defer src="huohubot-diagnostics.js"></script>
+  <script defer src="saihubot.js"></script>
+  <script defer src="saihubot-dialog.js"></script>
+  <script defer src="saihubot-diagnostics.js"></script>
   <script>
   document.addEventListener('DOMContentLoaded', function() {
     // plugins that use confirm dialog addon
@@ -36,10 +36,10 @@
 
     HuohuBot.prototype.responses.push(
       { name: 'go', rule: /home$/i, action: function(robot, msg) {
-        robot.confirm('visit Huohubot website', ['ok', function() {
-            robot.send('You\'ll be redirect to Huohubot home!');
+        robot.confirm('visit Saihubot website', ['ok', function() {
+            robot.send('You\'ll be redirect to Saihubot home!');
             robot.render();
-            window.location = 'https://github.com/gasolin/huohubot';
+            window.location = 'https://github.com/gasolin/saihubot';
           }]
         );
       }});

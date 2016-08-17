@@ -12,7 +12,7 @@ function HuohuBot() {
 }
 
 // var HuohuBot = {
-HuohuBot.prototype = {
+SaihuBot.prototype = {
   responses: [],
 
   catchAll: { action: function(robot, msg) {
@@ -93,4 +93,4 @@ HuohuBot.prototype = {
   }
 };
 
-var huohubot = new HuohuBot();
+var saihubot = new SaihuBot();
