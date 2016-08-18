@@ -28,7 +28,6 @@ SaihuBot.prototype = {
     this.btn.addEventListener('click', this.onReceive.bind(this));
     this.message.addEventListener('keydown', this.onKeydown.bind(this));
     this.render();
-    this.emit('running');
   },
 
   onKeydown: function(e) {
