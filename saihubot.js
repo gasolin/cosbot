@@ -32,7 +32,7 @@ SaihuBot.prototype = {
 
   onKeydown: function(e) {
     if(e.keyCode == 13) { // enter
-		  this.onReceive();
+      this.onReceive();
     }
   },
 
