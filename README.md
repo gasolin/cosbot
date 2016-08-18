@@ -1,9 +1,11 @@
-# saihubot
-client side chat bot that can be embedded in any web site
+# Saihubot
+Compact Chat bot runs in the Browser, you can add new vary kinds of dialect via plugins and extend its ability via addons
 
 Check [Online Demo](https://gasolin.github.io/saihubot/)
 
-saihu (`師傅`) means `master` in Taiwanese, its origin goal is a code sample that make learning [hubot]((https://github.com/github/hubot/)) and its ES6 variant [Webbybot](https://github.com/gasolin/webbybot/) easier.
+Saihubot's API is very similar to [hubot]((https://github.com/github/hubot/)'s API, so developer could port hubot-plugins to Saihubot-plugins with less effort.
+
+saihu (`師傅`) means `master` in Taiwanese, its origin goal is provide a code sample that make learning [hubot](https://github.com/github/hubot/) and its ES6 variant [Webbybot](https://github.com/gasolin/webbybot/) easier.
 
 ## Features
 
@@ -16,19 +18,23 @@ saihu (`師傅`) means `master` in Taiwanese, its origin goal is a code sample t
   * Plugin callbacks are extremely flexible, you can control in-page elements, execute local command, fetch remote data, trigger remote actions...
   * can extend bot functionality by import addons
 
-## How to Install
+## How to use
 
-### Method 1
+### Try online
 
 If you just want to try how the bot looks like, Check [Online Demo](https://gasolin.github.io/saihubot/)
 
-### Method 2
+### Try on github
 
-If you want to modify it locally, clone the project, then drag index.html to your browser, now you have a working bot!
+Fork the project, edit index.html with github editor, save it and see the result on https://[yourname].github.io/saihubot
 
-### Method 3
+### Modify locally
 
-If you want embed bot into your web site, clone the project then include the `saihubot.js` in your html file with 2 extra tags:
+Clone the project, then drag index.html to your browser, now you have a working bot!
+
+### Embed in your web site
+
+Clone the project then include the `saihubot.js` in your html file with 2 extra tags:
 
 ```html
 <div id="history"></div>
