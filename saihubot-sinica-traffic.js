@@ -1,5 +1,5 @@
 'use strict';
-// addon that provide confirm dialog function
+// plugin to provide sinica traffic information
 document.addEventListener('DOMContentLoaded', function() {
   var mrtMsg = '搭乘捷運板南線至南港站(2號出口)換乘公車212, 270或藍25至中研院站, 步行入院內至人文館';
   var bikeMsg = '在南港展覽館附近租借 YouBike 後，騎乘至研究路2段歸還後步行入院內至人文館';
