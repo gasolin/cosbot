@@ -4,18 +4,111 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="description" content="client side chatbot that can be embedded in any web site.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  <title>Saihubot</title>
+  <title>Coscup 2016 網頁版機器人</title>
 </head>
 <body>
   <div id="history"></div>
   <input id="message"><button id="send">Send</button>
 
   <p>
-    >> type `ping`, `time`, or `echo [message]` to see what's happened<br>
-    >> <a href="https://github.com/gasolin/saihubot/">Download Saihubot</a>
+    >> 專案在 <a href="https://github.com/gasolin/cosbot/">https://github.com/gasolin/cosbot/</a>，歡迎送 PR!
   </p>
 
   <script defer src="saihubot.js"></script>
+  <script defer src="saihubot-dialog.js"></script>
   <script defer src="saihubot-diagnostics.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // plugins that use confirm dialog addon
+    SaihuBot.prototype.catchAll = { action: function(robot, msg) {
+      var randomMsg = [
+        '我只好回你一個404了, 你是要問`議程`，`攤位資訊`, 還是`交通`?',
+        '梅林的鬍子阿, 你用對命令沒? 用個 / 捲軸試試?',
+        '我就當真你在跟我聊天了(灑花)',
+        '你收到幾個錯誤訊息了？再試一個',
+        '你怎麼不問問神奇的五樓呢？',
+        '人生哪~要浪費在美好的事物上，我就當你在跟我聊天了（幸福）',
+        '我想你應該不是在跟我講話，我都不知道要怎麼回你',
+        '你想知道什麼？',
+        '至少你是認真在跟我聊天, 不是在玩皮卡丘'
+      ];
+      var msgLen = randomMsg.length;
+      robot.send(randomMsg[Math.floor(Math.random() * msgLen)]);
+    }};
+
+    var mrtMsg = '搭乘捷運板南線至南港站(2號出口)換乘公車212, 270或藍25至中研院站, 步行入院內至人文館';
+    var bikeMsg = '在南港展覽館附近租借 YouBike 後，騎乘至研究路2段歸還後步行入院內至人文館';
+    var busMsg = '搭乘212, 276, 306, 620, 645, 679, 205, 小5, 小1, 小12 等公車至中研院站, 步行入院內至人文館';
+    var trainMsg = '至南港站(2號出口)換乘公車212, 270或藍25至中研院站, 步行入院內至人文館';
+    var driveMsg = '由國道三號，南深路-中研院匝道(16km)出國道三號後, 左轉接南深路，再左轉接舊莊路一段直走，' +
+      '遇到與研究院路叉路口，即可看到中研院。車輛進入院區請持證件向大門警衛室換取臨時通行證。假日換證不收費，並請停車於院內道路旁停車格';
+
+    SaihuBot.prototype.responses.push(
+      { name: 'mrt', rule: /捷運*|mrt*/i, action: function(robot, msg) {
+        robot.send(mrtMsg);
+      }});
+    SaihuBot.prototype.responses.push(
+      { name: 'youbike', rule: /腳踏車*|bike*/i, action: function(robot, msg) {
+        robot.send(bikeMsg);
+      }});
+    SaihuBot.prototype.responses.push(
+      { name: 'bus', rule: /公車*|bus*/i, action: function(robot, msg) {
+        robot.send(busMsg);
+      }});
+    SaihuBot.prototype.responses.push(
+      { name: 'bus', rule: /火車*|train*/i, action: function(robot, msg) {
+        robot.send(trainMsg);
+      }});
+    SaihuBot.prototype.responses.push(
+      { name: 'drive', rule: /開車*|drive*/i, action: function(robot, msg) {
+        robot.send(driveMsg);
+      }});
+
+    SaihuBot.prototype.responses.push(
+      { name: 'traffic', rule: /交通*/i, action: function(robot, msg) {
+        robot.confirm('請問你會用哪種交通方式來Coscup?',
+          ['1. 搭乘捷運', function() {
+            robot.send(mrtMsg);
+            robot.render();
+          }],
+          ['2. YouBike', function() {
+            robot.send(bikeMsg);
+            robot.render();
+          }],
+          ['3. 搭乘公車', function() {
+            robot.send(busMsg);
+            robot.render();
+          }],
+          ['4. 搭乘火車', function() {
+            robot.send(trainMsg);
+            robot.render();
+          }],
+          ['5. 自行開車', function() {
+            robot.send(driveMsg);
+            robot.render();
+          }]
+        );
+      }});
+
+    SaihuBot.prototype.responses.push(
+      { name: 'go', rule: /首頁|home*|議程*|schedule/i, action: function(robot, msg) {
+        robot.confirm('前往 Coscup 網站', ['ok', function() {
+            robot.send('開啟 Coscup 網站 http://coscup.org/2016/schedules.html');
+            robot.render();
+            window.location = 'http://coscup.org/2016/schedules.html';
+          }]
+        );
+      }});
+    SaihuBot.prototype.responses.push(
+      { name: 'go', rule: /贊助*|sponsor*/i, action: function(robot, msg) {
+        robot.confirm('前往 Coscup 贊助連結', ['ok', function() {
+            robot.send('開啟 Coscup 贊助連結 http://coscup.org/2016/sponsors.html');
+            robot.render();
+            window.location = 'http://coscup.org/2016/sponsors.html';
+          }]
+        );
+      }});
+  });
+  </script>
 </body>
 </html>
