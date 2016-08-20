@@ -1,6 +1,6 @@
 # Cosbot
 
-Coscup 網頁版聊天機器人(web bot), 可以拿來查 交通(公車, 開車, youbike, 高鐵, 火車), 議程, 贊助商, 地圖(人文館, 活動中心)
+Coscup 網頁版聊天機器人(web bot), 可以拿來查 交通(公車, 開車, youbike, 高鐵, 火車), 議程, 贊助商, 地圖(人文館, 活動中心), 攤位
 
 [線上版本](https://gasolin.github.io/cosbot/)
 修改後立即上線，歡迎送 PR 以增強 coscup bot 的功能！

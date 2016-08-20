@@ -11,7 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
       '人生哪~要浪費在美好的事物上，我就當你在跟我聊天了（幸福）',
       '我想你應該不是在跟我講話，我都不知道要怎麼回你',
       '你想知道什麼？',
-      '至少你是認真在跟我聊天, 不是在玩皮卡丘'
+      '至少你是認真在跟我聊天, 不是在玩皮卡丘',
+      '人文館附近鯉魚王跟可達鴉有點多阿...啥，你不是在跟我聊天嗎？'
     ];
     var msgLen = randomMsg.length;
     robot.send(randomMsg[Math.floor(Math.random() * msgLen)]);
@@ -30,6 +31,17 @@ document.addEventListener('DOMContentLoaded', function() {
       img.src = 'http://i.imgur.com/zfiQt0o.png';
       robot.chatHistory.push(img);
       robot.render();
+    }});
+
+  SaihuBot.prototype.responses.push(
+    { name: 'question', rule: /問題*/i, action: function(robot, msg) {
+      robot.confirm('什麼樣的問題?',
+        ['* 機器人錯誤或建議', function() {
+          robot.send('請將錯誤或建議回報到 https://github.com/gasolin/cosbot/issues');
+          robot.render();
+          window.location = 'https://github.com/gasolin/cosbot/issues';
+        }]
+      );
     }});
 
   SaihuBot.prototype.responses.push(
@@ -64,6 +76,16 @@ document.addEventListener('DOMContentLoaded', function() {
           robot.send('開啟 Coscup 贊助連結 http://coscup.org/2016/sponsors.html');
           robot.render();
           window.location = 'http://coscup.org/2016/sponsors.html';
+        }]
+      );
+    }});
+
+  SaihuBot.prototype.responses.push(
+    { name: 'stand', rule: /攤位*|stand*/i, action: function(robot, msg) {
+      robot.confirm('stand', ['顯示攤位資訊', function() {
+          robot.send('顯示攤位資訊 http://blog.coscup.org/2016/08/coscup-2016.html');
+          robot.render();
+          window.location = 'http://blog.coscup.org/2016/08/coscup-2016.html';
         }]
       );
     }});
