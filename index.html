@@ -125,7 +125,7 @@
 
     SaihuBot.prototype.responses.push(
       { name: 'go', rule: /首頁|home*|議程*|schedule/i, action: function(robot, msg) {
-        robot.confirm('前往 Coscup 網站', ['ok', function() {
+        robot.confirm('前往 Coscup 網站', ['前往網站', function() {
             robot.send('開啟 Coscup 網站 http://coscup.org/2016/schedules.html');
             robot.render();
             window.location = 'http://coscup.org/2016/schedules.html';
@@ -134,7 +134,7 @@
       }});
     SaihuBot.prototype.responses.push(
       { name: 'go', rule: /贊助*|sponsor*/i, action: function(robot, msg) {
-        robot.confirm('前往 Coscup 贊助連結', ['ok', function() {
+        robot.confirm('前往 Coscup 贊助連結', ['前往網站', function() {
             robot.send('開啟 Coscup 贊助連結 http://coscup.org/2016/sponsors.html');
             robot.render();
             window.location = 'http://coscup.org/2016/sponsors.html';
