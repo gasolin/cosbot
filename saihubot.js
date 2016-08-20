@@ -1,12 +1,13 @@
 'use strict';
 function SaihuBot() {
-  this.myAlias = 'me';
-  this.botAlias = 'bot';
+  this.myAlias = '我';
+  this.botAlias = '小啄';
   this.messageHistoryElement = 'history';
   this.inputElement = 'message';
   this.sendButtonElement = 'send';
   this.defaultMessage = document.createElement('p');
-  this.defaultMessage.textContent = this.botAlias + ': type something to chat with me';
+  this.defaultMessage.textContent = this.botAlias + ': COSCUP是由一群熱情於社群活動的志工管理。' +
+    '小啄不會儲存或傳送您的任何個人資訊到您所使用的裝置外，請放心玩弄我吧:3';
 
   this.init();
 }
